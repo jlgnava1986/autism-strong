@@ -31,7 +31,7 @@ Route::get('/gallery/{id}', 'App\Http\Controllers\GalleryController@show')->name
 
 Route::get('/photos/create/{galleryId}', 'App\Http\Controllers\PhotosController@create')->name('photo-create');
 Route::post('/photos/store', 'App\Http\Controllers\PhotosController@store')->name('photo-store');
-Route::get('/photos/create/{id}', 'App\Http\Controllers\PhotosController@show')->name('photo-show');
+Route::get('/photos/{id}', 'App\Http\Controllers\PhotosController@show')->name('photo-show');
 Route::delete('/photos/{id}', 'App\Http\Controllers\PhotosController@destroy')->name('photo-destroy');
 
 Route::get('/contact', 'App\Http\Controllers\ContactController@contact');

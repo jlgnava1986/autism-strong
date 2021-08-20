@@ -29,7 +29,7 @@
                 <p class="card-text">{{ $gallery->description }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{{ route ('gallery-show', $gallery->id) }}" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <a href="{{ route ('gallery-show', $gallery->id) }}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                 </div>
               </div>
             </div>
