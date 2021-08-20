@@ -25,11 +25,11 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a href="{{ route ('photo-show', $photo->id) }}" class="btn btn-sm btn-outline-secondary">View</a>
-                  </div><!--btn-group-->
-                </div><!--d-flex-->
-              </div><!-- card-body-->
-          </div><!-- card-->
-        </div><!-- col-md-4-->
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
         @endforeach
     </div><!-- row--> 
     @else
