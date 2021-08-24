@@ -28,6 +28,7 @@ Route::get('/gallery', 'App\Http\Controllers\GalleryController@index');
 Route::get('/gallery/create', 'App\Http\Controllers\GalleryController@create')->name('gallery-create');
 Route::post('/gallery/store', 'App\Http\Controllers\GalleryController@store')->name('gallery-store');
 Route::get('/gallery/{id}', 'App\Http\Controllers\GalleryController@show')->name('gallery-show');
+Route::delete('/gallery/{id}', 'App\Http\Controllers\GalleryController@destroy')->name('gallery-destroy');
 
 Route::get('/photos/create/{galleryId}', 'App\Http\Controllers\PhotosController@create')->name('photo-create');
 Route::post('/photos/store', 'App\Http\Controllers\PhotosController@store')->name('photo-store');

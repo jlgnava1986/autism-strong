@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Gallery;
 
 class GalleryController extends Controller
@@ -40,6 +41,26 @@ class GalleryController extends Controller
 
     public function show($id) {
         $gallery = Gallery::with('photos')->find($id);
+            if (!$gallery) {
+         
+                return abort(404);
+        }
+        
         return view('gallery.show')->with('gallery', $gallery);
+    }
+
+    public function destroy($id) {
+        $gallery = Gallery::find($id);
+
+        if (Storage::disk('local')->exists('public/gallery_covers/'.$gallery->cover_image)) {
+            
+            if (Storage::delete('public/gallery_covers/'.$gallery->cover_image)) {
+            $gallery->delete();
+
+            return redirect('/gallery')->with('success', 'Photo gallery deleted successfully.');
+            }
+        }
+
+        return back()->with('danger', 'Error: File not found.');
     }
 }
