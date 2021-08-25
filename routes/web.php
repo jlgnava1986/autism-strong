@@ -37,3 +37,6 @@ Route::delete('/photos/{id}', 'App\Http\Controllers\PhotosController@destroy')->
 
 Route::get('/contact', 'App\Http\Controllers\ContactController@contact');
 Route::post('/send-message', 'App\Http\Controllers\ContactController@sendEmail')->name('contact-send');
+
+Route::get('login/facebook', 'App\Http\Controllers\AuthController@redirectToFacebook');
+Route::get('login/facebook/callback', 'App\Http\Controllers\AuthController@getFacebookCallback');

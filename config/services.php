@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id' => '1924903147664636',
+        'client_secret' => '9d310dabf7e07c2829746c22edcbf0f7',
+        'redirect' => 'http://autismstrongphilippines.app/login/facebook/callback',
+    ],
+
 ];
