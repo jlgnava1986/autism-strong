@@ -31,9 +31,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '1924903147664636',
-        'client_secret' => '9d310dabf7e07c2829746c22edcbf0f7',
-        'redirect' => 'http://autismstrongphilippines.app/login/facebook/callback',
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => 'http://localhost/autism-strong/public/login/facebook/callback',
     ],
 
 ];

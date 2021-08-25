@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\PhotosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +16,16 @@ use App\Http\Controllers\PhotosController;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/about', function () {
     return view('about');
@@ -38,5 +45,5 @@ Route::delete('/photos/{id}', 'App\Http\Controllers\PhotosController@destroy')->
 Route::get('/contact', 'App\Http\Controllers\ContactController@contact');
 Route::post('/send-message', 'App\Http\Controllers\ContactController@sendEmail')->name('contact-send');
 
-Route::get('login/facebook', 'App\Http\Controllers\AuthController@redirectToFacebook');
-Route::get('login/facebook/callback', 'App\Http\Controllers\AuthController@getFacebookCallback');
+Route::get('login/facebook', 'App\Http\Controllers\Auth\LoginController@redirectToFacebook')->name('login-facebook');
+Route::get('login/facebook/callback', 'App\Http\Controllers\Auth\LoginController@handleFacebookCallback');
